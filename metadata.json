@@ -1,0 +1,35 @@
+{
+  "name": "htpasswd",
+  "description": "Provider for htpasswd",
+  "long_description": "Description\n===========\n\nManage an htpasswd file.\nIf htpasswd exe isn't found, we install a python implementation.\n\nRequirements\n============\n\nWork on linux with python for build-in implementation\n\nResource/Provider\n=================\n\nThis cookbook includes LWRPs for managing:\n* htpasswd\n\nhtpasswd\n--------\n\n# Actions\n\n- :add: Add a login in a htpasswd file. modify it if there is already one and create file if not found (default)\n- :overwrite: Overwrite an htpasswd file (delete file and add user).\n\n# Attribute Parameters\n\n- package_name: file attribute. path of the htpaswwd to manage\n- user: user to create\n- password: password for the user\n\n# Example\n    # add user \"foo\" with password \"bar\" to \"/etc/nginx/htpassword\"\n    htpasswd \"/etc/nginx/htpassword\" do\n      user \"foo\"\n      password \"bar\"\n    end\n",
+  "maintainer": "Guilhem Lettron",
+  "maintainer_email": "guilhem.lettron@youscribe.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "ubuntu": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "redhat": ">= 0.0.0",
+    "fedora": ">= 0.0.0"
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+    "python": ">= 0.0.0"
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "0.0.1"
+}
