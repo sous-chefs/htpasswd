@@ -41,10 +41,12 @@ def create
   execute "create htpasswd" do
     command "htpasswd -c -b #{new_resource.file} #{new_resource.user} #{new_resource.password}"
   end
+  new_resource.updated_by_last_action(true)
 end
 
 def add
   execute "add to htpasswd" do
     command "htpasswd -b #{new_resource.file} #{new_resource.user} #{new_resource.password}"
   end
+  new_resource.updated_by_last_action(true)
 end
