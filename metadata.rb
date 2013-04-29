@@ -1,3 +1,4 @@
+name             "htpasswd"
 maintainer       "Guilhem Lettron"
 maintainer_email "guilhem.lettron@youscribe.com"
 license          "Apache 2.0"
