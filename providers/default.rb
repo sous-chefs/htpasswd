@@ -19,32 +19,32 @@
 #
 
 def initialize(*args)
-	super
-	@action = :add
+  super
+  @action = :add
 end
 
 action :add do
-	if ::File.exists?(new_resource.file)
-		add
-	else
-		create
-	end
+  if ::File.exists?(new_resource.file)
+    add
+  else
+    create
+  end
 end
 
 action :overwrite do
-	create
+  create
 end
 
 private
 
 def create
-	execute "create htpasswd" do
-		command "htpasswd -c -b #{new_resource.file} #{new_resource.user} #{new_resource.password}"
-	end
+  execute "create htpasswd" do
+    command "htpasswd -c -b #{new_resource.file} #{new_resource.user} #{new_resource.password}"
+  end
 end
 
 def add
-	execute "add to htpasswd" do
-		command "htpasswd -b #{new_resource.file} #{new_resource.user} #{new_resource.password}"
-	end
+  execute "add to htpasswd" do
+    command "htpasswd -b #{new_resource.file} #{new_resource.user} #{new_resource.password}"
+  end
 end

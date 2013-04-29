@@ -5,6 +5,6 @@ attribute :user, :kind_of => String, :required => true
 attribute :password, :kind_of => String, :required => true
 
 def initialize(*args)
-	super
-	@action = :add
+  super
+  @action = :add
 end

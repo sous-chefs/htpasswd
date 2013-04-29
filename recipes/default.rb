@@ -19,5 +19,5 @@
 #
 
 unless which("htpasswd")
-	include_recipe "htpasswd::build-in"
+  include_recipe "htpasswd::build-in"
 end

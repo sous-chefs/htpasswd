@@ -19,8 +19,8 @@
 #
 
 cookbook_file "#{node[:htpasswd][:install_dir]}/htpasswd" do
-	source "htpasswd.py"
-	mode "0755"
-	owner "root"
-	group "root"
+  source "htpasswd.py"
+  mode "0755"
+  owner "root"
+  group "root"
 end
