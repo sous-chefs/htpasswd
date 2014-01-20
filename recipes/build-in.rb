@@ -18,9 +18,23 @@
 # limitations under the License.
 #
 
-cookbook_file "#{node[:htpasswd][:install_dir]}/htpasswd" do
-  source "htpasswd.py"
-  mode "0755"
-  owner "root"
-  group "root"
+case node[:htpasswd][:script_lang]
+when 'ruby'
+  package 'ruby'
+  gem_package 'htauth'
+  ruby_exec = `which ruby`.chomp
+  gem_bindir = `"#{ruby_exec}" -rrubygems -e 'puts Gem.bindir'`.chomp
+  link "#{gem_bindir}/htpasswd" do
+    to "#{gem_bindir}/htpasswd-ruby"
+    not_if "which htpasswd"
+  end
+when 'python'
+  cookbook_file "#{node[:htpasswd][:install_dir]}/htpasswd" do
+    source "htpasswd.py"
+    mode "0755"
+    owner "root"
+    group "root"
+  end
+else
+  raise "Unsupported htpasswd script version: #{node[:htpasswd][:script_lang]}"
 end
