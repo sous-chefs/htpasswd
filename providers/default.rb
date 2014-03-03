@@ -35,6 +35,10 @@ action :overwrite do
   create
 end
 
+action :delete do
+  delete
+end
+
 private
 
 def create
@@ -47,6 +51,13 @@ end
 def add
   execute "add to htpasswd" do
     command "htpasswd -b #{new_resource.file} #{new_resource.user} #{new_resource.password}"
+  end
+  new_resource.updated_by_last_action(true)
+end
+
+def delete
+  execute "delete from htpasswd" do
+    command "htpasswd -D #{new_resource.file} #{new_resource.user}"
   end
   new_resource.updated_by_last_action(true)
 end
