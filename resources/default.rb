@@ -1,4 +1,4 @@
-actions :add, :overwrite
+actions :add, :overwrite, :delete
 
 attribute :file, :kind_of => String, :name_attribute => true
 attribute :user, :kind_of => String, :required => true
