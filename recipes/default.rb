@@ -18,6 +18,8 @@
 # limitations under the License.
 #
 
+chef_gem "htauth"
+
 unless which("htpasswd")
   include_recipe "htpasswd::build-in"
 end

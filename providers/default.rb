@@ -18,46 +18,94 @@
 # limitations under the License.
 #
 
-def initialize(*args)
-  super
-  @action = :add
-end
+use_inline_resources if defined?(use_inline_resources)
+
+include Chef::DSL::IncludeRecipe
 
 action :add do
-  if ::File.exists?(new_resource.file)
-    add
+  if user_set?
+    Chef::Log.info "#{ @new_resource } already exists - nothing to do."
   else
-    create
+    converge_by("Create #{ @new_resource }") do
+      if ::File.exists?(new_resource.file)
+        add
+      else
+        create
+      end
+    end
   end
 end
 
 action :overwrite do
-  create
+  converge_by("Create #{ @new_resource }") do
+    create
+  end
 end
 
 action :delete do
-  delete
+  if user_exists?
+    converge_by("Delete #{ @new_resource }") do
+      delete
+    end
+  else
+    Chef::Log.info "#{ @current_resource } doesn't exist - can't delete."
+  end
+end
+
+def load_current_resource
+  include_recipe "htpasswd"
+
+  require 'htauth'
 end
 
 private
 
+def user_entry
+  HTAuth::PasswdFile.new(new_resource.file).fetch(new_resource.user)
+  rescue
+  nil
+end
+
+def user_exists?
+  !user_entry.nil?
+end
+
+def user_set?
+  user_entry.authenticated?(new_resource.password) unless user_entry.nil?
+end
+    
+#   cmd = "htpasswd -v #{file} #{user} #{password}"
+#   return Mixlib::ShellOut.new(cmd).run_command.exitstatus == 0
+# end
+
 def create
-  execute "create htpasswd" do
-    command "htpasswd -c -b #{new_resource.file} #{new_resource.user} #{new_resource.password}"
+  ruby_block "Creating htpasswd file #{ new_resource.file }" do
+    block do
+      pf = HTAuth::PasswdFile.new(new_resource.file, HTAuth::File::CREATE)
+      pf.add(new_resource.user, new_resource.password)
+      pf.save!
+    end
   end
-  new_resource.updated_by_last_action(true)
 end
 
 def add
-  execute "add to htpasswd" do
-    command "htpasswd -b #{new_resource.file} #{new_resource.user} #{new_resource.password}"
+  ruby_block "Adding #{new_resource.user} to htpasswd file #{ new_resource.file }" do
+    block do
+      pf = HTAuth::PasswdFile.new(new_resource.file)
+      pf.add_or_update(new_resource.user, new_resource.password)
+      pf.save!
+    end
+    only_if { ::File.exists?(new_resource.file) }
   end
-  new_resource.updated_by_last_action(true)
 end
 
 def delete
-  execute "delete from htpasswd" do
-    command "htpasswd -D #{new_resource.file} #{new_resource.user}"
+  ruby_block "Delete #{new_resource.user} to htpasswd file #{ new_resource.file }" do
+    block do
+      pf = HTAuth::PasswdFile.new(new_resource.file)
+      pf.delete(new_resource.user)
+      pf.save!
+    end
+    only_if { ::File.exists?(new_resource.file) }
   end
-  new_resource.updated_by_last_action(true)
 end
