@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: htpasswd
-# recipe:: default
+# recipe:: ruby
 # Author:: Guilhem Lettron <guilhem.lettron@youscribe.com>
 #
 # Copyright 2012, Societe Publica.
@@ -18,4 +18,6 @@
 # limitations under the License.
 #
 
-include_recipe "htpasswd::#{node['htpasswd']['install_method']}" if node['htpasswd']['install_method']
+include_recipe 'ruby'
+
+gem_package 'htauth'

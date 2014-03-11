@@ -10,3 +10,6 @@ suggests         "python"
 %w{ ubuntu debian centos redhat fedora }.each do |os|
 	supports os
 end
+
+depends          'ruby'
+depends          'python'
