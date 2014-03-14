@@ -53,7 +53,7 @@ action :delete do
 end
 
 def load_current_resource
-  include_recipe "htpasswd::_common"
+  include_recipe 'htpasswd::_common'
 
   require 'htauth'
 end
@@ -73,7 +73,7 @@ end
 def user_set?
   user_entry.authenticated?(new_resource.password) unless user_entry.nil?
 end
-    
+
 #   cmd = "htpasswd -v #{file} #{user} #{password}"
 #   return Mixlib::ShellOut.new(cmd).run_command.exitstatus == 0
 # end
