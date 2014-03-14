@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Youscribe/htpasswd-cookbook.png)](https://travis-ci.org/Youscribe/htpasswd-cookbook)
 Description
 ===========
 
