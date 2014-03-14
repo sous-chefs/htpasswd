@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: htpasswd
-# recipe:: build-in
+# recipe:: python
 # Author:: Guilhem Lettron <guilhem.lettron@youscribe.com>
 #
 # Copyright 2012, Societe Publica.
@@ -18,9 +18,4 @@
 # limitations under the License.
 #
 
-cookbook_file "#{node[:htpasswd][:install_dir]}/htpasswd" do
-  source "htpasswd.py"
-  mode "0755"
-  owner "root"
-  group "root"
-end
+python_pip 'htpasswd-cli'

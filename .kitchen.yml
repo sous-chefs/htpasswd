@@ -23,5 +23,7 @@ platforms:
 
 suites:
 - name: default
-  run_list: ["recipe[htpasswd]"]
+  run_list: 
+  - "recipe[htpasswd]"
+  - "recipe[htpasswd_test]"
   attributes: {}
