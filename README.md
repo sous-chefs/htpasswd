@@ -31,8 +31,16 @@ htpasswd
 - password: password for the user
 
 # Example
-    # add user "foo" with password "bar" to "/etc/nginx/htpassword"
+    # add user "foo" with password "bar" to "/etc/nginx/htpassword" with the default md5 type.
     htpasswd "/etc/nginx/htpassword" do
       user "foo"
       password "bar"
     end
+
+    # add user "foo" with password "bar" using sha1 as the type.
+    htpasswd "/etc/nginx/htpassword" do
+      user "foo"
+      password "bar"
+      type "sha1"
+    end
+

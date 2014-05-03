@@ -82,7 +82,7 @@ def create
   ruby_block "Creating htpasswd file #{ new_resource.file }" do
     block do
       pf = HTAuth::PasswdFile.new(new_resource.file, HTAuth::File::CREATE)
-      pf.add(new_resource.user, new_resource.password)
+      pf.add(new_resource.user, new_resource.password, new_resource.type)
       pf.save!
     end
   end
@@ -92,7 +92,7 @@ def add
   ruby_block "Adding #{new_resource.user} to htpasswd file #{ new_resource.file }" do
     block do
       pf = HTAuth::PasswdFile.new(new_resource.file)
-      pf.add_or_update(new_resource.user, new_resource.password)
+      pf.add_or_update(new_resource.user, new_resource.password, new_resource.type)
       pf.save!
     end
     only_if { ::File.exists?(new_resource.file) }
