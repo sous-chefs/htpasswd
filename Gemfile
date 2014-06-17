@@ -8,7 +8,7 @@ end
 group :test, :integration do
   gem 'chefspec',   '~> 3.0'
   gem 'foodcritic', '~> 3.0'
-  gem 'rubocop',    '~> 0.16'
+  gem 'rubocop',    '~> 0.23.0'
 end
 
 group :integration do
