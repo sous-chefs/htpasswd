@@ -27,7 +27,7 @@ action :add do
     Chef::Log.info "#{ @new_resource } already exists - nothing to do."
   else
     converge_by("Create #{ @new_resource }") do
-      if ::File.exists?(new_resource.file)
+      if ::File.exist?(new_resource.file)
         add
       else
         create
@@ -95,7 +95,7 @@ def add
       pf.add_or_update(new_resource.user, new_resource.password)
       pf.save!
     end
-    only_if { ::File.exists?(new_resource.file) }
+    only_if { ::File.exist?(new_resource.file) }
   end
 end
 
@@ -106,6 +106,6 @@ def delete
       pf.delete(new_resource.user)
       pf.save!
     end
-    only_if { ::File.exists?(new_resource.file) }
+    only_if { ::File.exist?(new_resource.file) }
   end
 end
