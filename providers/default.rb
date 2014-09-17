@@ -20,8 +20,6 @@
 
 use_inline_resources if defined?(use_inline_resources)
 
-include Chef::DSL::IncludeRecipe
-
 action :add do
   if user_set?
     Chef::Log.info "#{ @new_resource } already exists - nothing to do."
@@ -52,9 +50,9 @@ action :delete do
   end
 end
 
-def load_current_resource
-  include_recipe 'htpasswd::_common'
-
+def initialize(*args)
+  super
+  @run_context.include_recipe 'htpasswd::_common'
   require 'htauth'
 end
 
