@@ -20,6 +20,11 @@
 
 use_inline_resources if defined?(use_inline_resources)
 
+# Support whyrun
+def whyrun_supported?
+  true
+end
+
 action :add do
   if user_set?
     Chef::Log.info "#{ @new_resource } already exists - nothing to do."
