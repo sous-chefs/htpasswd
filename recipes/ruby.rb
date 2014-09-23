@@ -18,6 +18,4 @@
 # limitations under the License.
 #
 
-include_recipe 'ruby'
-
 gem_package 'htauth'
