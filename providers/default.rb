@@ -66,7 +66,7 @@ private
 def user_entry
   HTAuth::PasswdFile.new(new_resource.file).fetch(new_resource.user)
   rescue
-  nil
+    nil
 end
 
 def user_exists?
