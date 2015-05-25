@@ -1,4 +1,4 @@
-# htpasswd [![Build Status](https://travis-ci.org/Youscribe/htpasswd-cookbook.png)](https://travis-ci.org/Youscribe/htpasswd-cookbook) [![Cookbook Version](https://img.shields.io/cookbook/v/htpasswd.svg)](https://community.opscode.com/cookbooks/htpasswd)
+# htpasswd [![Build Status](https://travis-ci.org/redguide/htpasswd.png)](https://travis-ci.org/redguide/htpasswd) [![Cookbook Version](https://img.shields.io/cookbook/v/htpasswd.svg)](https://community.opscode.com/cookbooks/htpasswd)
 
 ## Description
 
