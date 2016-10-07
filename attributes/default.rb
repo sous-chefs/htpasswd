@@ -6,6 +6,6 @@ default['htpasswd']['install_dir'] = '/usr/local/bin'
 default['htpasswd']['path']        = ::File.join(node['htpasswd']['install_dir'], 'htpasswd')
 
 default['htpasswd']['packages'] = value_for_platform_family(
-  ['rhel', 'fedora', 'suse'] => ['httpd-tools'],
-  ['default', 'debian'] => ['apache2-utils']
+  ['rhel', 'fedora'] => ['httpd-tools'],
+  ['default', 'debian', 'suse'] => ['apache2-utils']
 )
