@@ -20,7 +20,3 @@ Style/IndentArray:
   Enabled: false
 Style/RescueEnsureAlignment:
   Enabled: false
-Style/SpaceInsidePercentLiteralDelimiters:
-  Enabled: false
-Style/SpaceInsideStringInterpolation:
-  Enabled: false

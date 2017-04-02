@@ -7,7 +7,13 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '0.2.5'
 suggests 'python'
 
-%w( ubuntu debian centos redhat fedora ).each do |os|
+%w(
+  centos
+  debian
+  fedora
+  redhat
+  ubuntu
+).each do |os|
   supports os
 end
 
