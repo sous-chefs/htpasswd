@@ -16,5 +16,3 @@ Style/FileName:
   Enabled: false
 Style/HashSyntax:
   Enabled: false
-Style/IndentArray:
-  Enabled: false
