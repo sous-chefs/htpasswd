@@ -18,5 +18,3 @@ Style/HashSyntax:
   Enabled: false
 Style/IndentArray:
   Enabled: false
-Style/RescueEnsureAlignment:
-  Enabled: false
