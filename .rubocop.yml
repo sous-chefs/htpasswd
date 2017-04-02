@@ -13,4 +13,5 @@ Metrics/AbcSize:
 Metrics/LineLength:
   Enabled: false
 Style/FileName:
-  Enabled: false
+  Exclude:
+    - Vagrantfile
