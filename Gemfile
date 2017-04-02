@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rake'
 gem 'berkshelf'
+gem 'rake'
 gem 'stove'
 
 group :test do
@@ -10,6 +10,6 @@ group :test do
 end
 
 group :integration do
-  gem 'test-kitchen'
   gem 'kitchen-vagrant'
+  gem 'test-kitchen'
 end

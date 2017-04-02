@@ -8,21 +8,23 @@ AllCops:
   Exclude:
     - 'vendor/**/*'
 
-ClassLength:
+Metrics/AbcSize:
   Enabled: false
-Documentation:
+Metrics/LineLength:
   Enabled: false
-Encoding:
+Style/FileName:
   Enabled: false
-HashSyntax:
+Style/HashSyntax:
   Enabled: false
-LineLength:
+Style/IndentArray:
   Enabled: false
-MethodLength:
+Style/RescueEnsureAlignment:
   Enabled: false
-SignalException:
+Style/SpaceInsidePercentLiteralDelimiters:
   Enabled: false
-TrailingComma:
+Style/SpaceInsideStringInterpolation:
   Enabled: false
-WordArray:
+Style/StringLiterals:
+  Enabled: false
+Style/WordArray:
   Enabled: false
