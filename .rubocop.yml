@@ -1,9 +1,13 @@
 AllCops:
+  DisplayCopNames: true
   Exclude:
     - 'vendor/**/*'
 
 Metrics/AbcSize:
   Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - Vagrantfile
 Metrics/LineLength:
   Enabled: false
 Style/FileName:
