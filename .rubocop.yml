@@ -14,5 +14,3 @@ Metrics/LineLength:
   Enabled: false
 Style/FileName:
   Enabled: false
-Style/HashSyntax:
-  Enabled: false
