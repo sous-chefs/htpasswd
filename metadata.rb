@@ -16,7 +16,7 @@ version '0.2.5'
   supports os
 end
 
-depends 'python'
+depends 'poise-python'
 
 source_url 'https://github.com/redguide/htpasswd' if respond_to?(:source_url)
 issues_url 'https://github.com/redguide/htpasswd/issues' if respond_to?(:issues_url)

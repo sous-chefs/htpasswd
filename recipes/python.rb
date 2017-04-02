@@ -18,4 +18,4 @@
 # limitations under the License.
 #
 
-python_pip 'htpasswd-cli'
+python_package 'htpasswd-cli'
