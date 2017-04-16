@@ -27,9 +27,9 @@ end
 
 action :add do
   if user_set?
-    Chef::Log.info "#{ @new_resource } already exists - nothing to do."
+    Chef::Log.info "#{@new_resource} already exists - nothing to do."
   else
-    converge_by("Create #{ @new_resource }") do
+    converge_by("Create #{@new_resource}") do
       if ::File.exist?(new_resource.file)
         add
       else
@@ -40,18 +40,18 @@ action :add do
 end
 
 action :overwrite do
-  converge_by("Create #{ @new_resource }") do
+  converge_by("Create #{@new_resource}") do
     create
   end
 end
 
 action :delete do
   if user_exists?
-    converge_by("Delete #{ @new_resource }") do
+    converge_by("Delete #{@new_resource}") do
       delete
     end
   else
-    Chef::Log.info "#{ @current_resource } doesn't exist - can't delete."
+    Chef::Log.info "#{@current_resource} doesn't exist - can't delete."
   end
 end
 
@@ -65,8 +65,8 @@ private
 
 def user_entry
   HTAuth::PasswdFile.new(new_resource.file).fetch(new_resource.user)
-  rescue
-    nil
+rescue
+  nil
 end
 
 def user_exists?
@@ -82,7 +82,7 @@ end
 # end
 
 def create
-  ruby_block "Creating htpasswd file #{ new_resource.file }" do
+  ruby_block "Creating htpasswd file #{new_resource.file}" do
     block do
       pf = HTAuth::PasswdFile.new(new_resource.file, HTAuth::File::CREATE)
       pf.add(new_resource.user, new_resource.password, new_resource.type)
@@ -92,7 +92,7 @@ def create
 end
 
 def add
-  ruby_block "Adding #{new_resource.user} to htpasswd file #{ new_resource.file }" do
+  ruby_block "Adding #{new_resource.user} to htpasswd file #{new_resource.file}" do
     block do
       pf = HTAuth::PasswdFile.new(new_resource.file)
       pf.add_or_update(new_resource.user, new_resource.password, new_resource.type)
@@ -103,7 +103,7 @@ def add
 end
 
 def delete
-  ruby_block "Delete #{new_resource.user} to htpasswd file #{ new_resource.file }" do
+  ruby_block "Delete #{new_resource.user} to htpasswd file #{new_resource.file}" do
     block do
       pf = HTAuth::PasswdFile.new(new_resource.file)
       pf.delete(new_resource.user)
