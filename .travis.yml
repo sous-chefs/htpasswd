@@ -26,8 +26,8 @@ before_deploy:
 - openssl aes-256-cbc -K $encrypted_6b0f22b9ebc1_key -iv $encrypted_6b0f22b9ebc1_iv
   -in supermarket.pem.enc -out supermarket.pem -d
 deploy:
+  skip_cleanup: true
   provider: chef-supermarket
-  edge: true
   user_id: redguide
   client_key: supermarket.pem
   cookbook_category: Other
