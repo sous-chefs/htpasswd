@@ -57,7 +57,6 @@ end
 
 def initialize(*args)
   super
-  @run_context.include_recipe 'htpasswd::_common'
   require 'htauth'
 end
 
