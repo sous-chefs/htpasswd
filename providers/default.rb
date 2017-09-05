@@ -73,14 +73,16 @@ def user_exists?
 end
 
 def user_set?
-  if new_resource.type == 'plaintext'
-    if new_resource.password == user_entry.digest
-      true
+  unless user_entry.nil?
+    if new_resource.type == 'plaintext'
+      if new_resource.password == user_entry.digest
+        true
+      else
+        false
+      end
     else
-      false
+      user_entry.authenticated?(new_resource.password)
     end
-  else
-    user_entry.authenticated?(new_resource.password) unless user_entry.nil?
   end
 end
 
