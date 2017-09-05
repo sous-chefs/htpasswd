@@ -73,7 +73,15 @@ def user_exists?
 end
 
 def user_set?
-  user_entry.authenticated?(new_resource.password) unless user_entry.nil?
+  if new_resource.type == 'plaintext'
+    if new_resource.password == user_entry.digest
+      true
+    else
+      false
+    end
+  else
+    user_entry.authenticated?(new_resource.password) unless user_entry.nil?
+  end
 end
 
 #   cmd = "htpasswd -v #{file} #{user} #{password}"
