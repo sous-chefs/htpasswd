@@ -17,6 +17,13 @@ htpasswd file do
 end
 
 htpasswd file do
+  user 'jane'
+  password '$apr1$PsW9V1Ij$lDqu.ixfvbG5hRN27c5Xn/'
+  type 'plaintext'
+end
+
+
+htpasswd file do
   user 'admin'
   action :delete
 end

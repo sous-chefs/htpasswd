@@ -42,4 +42,11 @@ htpasswd "/etc/nginx/htpassword" do
   password "bar"
   type "sha1"
 end
+
+# add user "foo" with encrypted password using plaintext as the type.
+htpasswd "/etc/nginx/htpassword" do
+  user "foo"
+  password "$apr1$H5Z8CUB.$L3wyxUF1ZDd.oZFlTkJ4X."
+  type "plaintext"
+end
 ```
