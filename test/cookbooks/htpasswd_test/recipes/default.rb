@@ -22,7 +22,6 @@ htpasswd file do
   type 'plaintext'
 end
 
-
 htpasswd file do
   user 'admin'
   action :delete
