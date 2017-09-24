@@ -12,4 +12,5 @@ end
 group :integration do
   gem 'kitchen-vagrant'
   gem 'test-kitchen'
+  gem 'kitchen-dokken'
 end
