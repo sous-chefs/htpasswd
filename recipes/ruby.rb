@@ -1,9 +1,9 @@
 #
-# Cookbook Name:: htpasswd
+# Cookbook:: htpasswd
 # recipe:: ruby
 # Author:: Guilhem Lettron <guilhem.lettron@youscribe.com>
 #
-# Copyright 2012, Societe Publica.
+# Copyright:: 2012, Societe Publica.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
