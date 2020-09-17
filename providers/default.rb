@@ -1,9 +1,9 @@
 #
-# Cookbook Name:: htpasswd
+# Cookbook:: htpasswd
 # Provider:: htpasswd
 # Author:: Guilhem Lettron <guilhem.lettron@youscribe.com>
 #
-# Copyright 20012, Societe Publica.
+# Copyright:: 20012, Societe Publica.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,12 +18,7 @@
 # limitations under the License.
 #
 
-use_inline_resources if defined?(use_inline_resources)
-
 # Support whyrun
-def whyrun_supported?
-  true
-end
 
 action :add do
   if user_set?
@@ -75,11 +70,7 @@ end
 def user_set?
   return false if user_entry.nil?
   if new_resource.type == 'plaintext'
-    if new_resource.password == user_entry.digest
-      true
-    else
-      false
-    end
+    new_resource.password == user_entry.digest
   else
     user_entry.authenticated?(new_resource.password)
   end
