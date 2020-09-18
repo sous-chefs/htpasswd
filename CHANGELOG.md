@@ -17,6 +17,7 @@ This file is used to list changes made in each version of the htpasswd cookbook.
 ### Changed
 
 - Update test-kitchen to modern platforms
+- Update metadata.rb for Sous Chefs
 
 ## 0.3.0 - 2017-05-21
 
