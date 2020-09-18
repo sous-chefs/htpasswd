@@ -14,6 +14,10 @@ This file is used to list changes made in each version of the htpasswd cookbook.
 - Support for 'plaintext' type [\#32](https://github.com/sous-chefs/htpasswd/pull/32)
 - Adoption by Sous-Chefs [\#40](https://github.com/sous-chefs/htpasswd/pull/40)
 
+### Changed
+
+- Update test-kitchen to modern platforms
+
 ## 0.3.0 - 2017-05-21
 
 - Tests [\#30](https://github.com/sous-chefs/htpasswd/pull/30)
