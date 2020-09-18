@@ -18,4 +18,4 @@ suites:
   - name: default
     run_list:
       - recipe[htpasswd]
-      - recipe[htpasswd_test]
+      - recipe[test]
