@@ -5,10 +5,8 @@ license           'Apache-2.0'
 description       'Provider for htpasswd'
 source_url        'https://github.com/sous-chefs/htpasswd'
 issues_url        'https://github.com/sous-chefs/htpasswd/issues'
-chef_version      '>= 12.15'
+chef_version      '>= 14.0'
 version           '0.3.0'
-
-gem 'htauth'
 
 supports 'centos'
 supports 'debian'

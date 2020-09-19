@@ -8,6 +8,7 @@ This file is used to list changes made in each version of the htpasswd cookbook.
 
 - Automated PR: Cookstyle Changes [\#39](https://github.com/sous-chefs/htpasswd/pull/39)
 - Automated PR: Standardising Files [\#38](https://github.com/sous-chefs/htpasswd/pull/38)
+- Fix converge failures on Chef 16
 
 ### Added
 
