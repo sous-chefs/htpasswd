@@ -6,7 +6,7 @@
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Manage an htpasswd file.  If htpasswd exe isn't found, we install a python implementation.
+Manage an htpasswd file. If htpasswd exe isn't found, we install a python implementation.
 
 ## Maintainers
 
@@ -20,9 +20,9 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 - Debian 9+
 - Ubuntu 16.04+ LTS
 
-### Chef
+### Chef Infra
 
-This cookbook requires Chef >= 14.
+This cookbook requires Chef Infra >= 14.
 
 ## Resource/Provider
 
