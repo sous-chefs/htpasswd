@@ -30,14 +30,17 @@ This cookbook requires Chef Infra >= 14.
 
 ### Actions
 
-- :add: Add a login in a htpasswd file. modify it if there is already one and create file if not found (default)
-- :overwrite: Overwrite an htpasswd file (delete file and add user).
+- :add: Add a login in a htpasswd file. Update and modify it if there is already one and create file if not found (default)
+- :overwrite: Overwrite an htpasswd file (delete file and add user) NOTE: This action is _not_ idempotent.
+- :delete: Delete a login in a htpasswd file.
 
-### Attribute Parameters
+### Parameters
 
-- package_name: file attribute. path of the htpaswwd to manage
-- user: user to create
-- password: password for the user
+- :file: Path of the htpasxwd to manage
+- :user: User to create
+- :password: Password for the user
+- :type: Password algorithm to use. Valid options are: "md5", "bcrypt", "sha1", "plaintext", or "crypt". Default is
+  "md5"
 
 ### Example
 

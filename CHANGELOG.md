@@ -9,17 +9,20 @@ This file is used to list changes made in each version of the htpasswd cookbook.
 - Automated PR: Cookstyle Changes [\#39](https://github.com/sous-chefs/htpasswd/pull/39)
 - Automated PR: Standardising Files [\#38](https://github.com/sous-chefs/htpasswd/pull/38)
 - Fix converge failures on Chef 16
+- Fix idempotency for `:add` and `:delete` actions
 
 ### Added
 
 - Support for 'plaintext' type [\#32](https://github.com/sous-chefs/htpasswd/pull/32)
 - Adoption by Sous-Chefs [\#40](https://github.com/sous-chefs/htpasswd/pull/40)
+- Add delete and overwrite test-kitchen suites
 
 ### Changed
 
 - Update test-kitchen to modern platforms
 - Update metadata.rb for Sous Chefs
 - Update README.md for Sous Chefs
+- Convert htpasswd to a custom resource
 
 ## 0.3.0 - 2017-05-21
 
