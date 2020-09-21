@@ -21,5 +21,3 @@
 build_essential 'htpasswd'
 
 chef_gem 'htauth'
-
-include_recipe "htpasswd::#{node['htpasswd']['install_method']}" if node['htpasswd']['install_method']

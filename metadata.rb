@@ -13,5 +13,3 @@ supports 'debian'
 supports 'fedora'
 supports 'redhat'
 supports 'ubuntu'
-
-depends 'poise-python'

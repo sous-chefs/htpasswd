@@ -6,7 +6,7 @@
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Manage an htpasswd file. If htpasswd exe isn't found, we install a python implementation.
+Manage users in htpasswd files.
 
 ## Maintainers
 
@@ -36,7 +36,7 @@ This cookbook requires Chef Infra >= 14.
 
 ### Parameters
 
-- :file: Path of the htpasxwd to manage
+- :file: Path of the htpasswd to manage
 - :user: User to create
 - :password: Password for the user
 - :type: Password algorithm to use. Valid options are: "md5", "bcrypt", "sha1", "plaintext", or "crypt". Default is

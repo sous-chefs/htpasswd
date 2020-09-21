@@ -24,6 +24,10 @@ This file is used to list changes made in each version of the htpasswd cookbook.
 - Update README.md for Sous Chefs
 - Convert htpasswd to a custom resource
 
+### Removed
+
+- Remove unused recipes and other dependencies
+
 ## 0.3.0 - 2017-05-21
 
 - Tests [\#30](https://github.com/sous-chefs/htpasswd/pull/30)
