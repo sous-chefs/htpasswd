@@ -1,8 +1,6 @@
 module Htpasswd
   module Cookbook
     module Helpers
-      require 'htauth'
-
       private
 
       def htpasswd_user_exists?(new_resource)
@@ -19,27 +17,37 @@ module Htpasswd
       end
 
       def htpasswd_create(new_resource)
+        require_htauth
         pf = HTAuth::PasswdFile.new(new_resource.file, HTAuth::File::CREATE)
         pf.add(new_resource.user, new_resource.password, new_resource.type)
         pf.save!
       end
 
       def htpasswd_add(new_resource)
+        require_htauth
         pf = HTAuth::PasswdFile.new(new_resource.file)
         pf.add_or_update(new_resource.user, new_resource.password, new_resource.type)
         pf.save!
       end
 
       def htpasswd_delete(new_resource)
+        require_htauth
         pf = HTAuth::PasswdFile.new(new_resource.file)
         pf.delete(new_resource.user)
         pf.save!
       end
 
       def user_entry(new_resource)
+        require_htauth
         HTAuth::PasswdFile.new(new_resource.file).fetch(new_resource.user)
       rescue
         nil
+      end
+
+      def require_htauth
+        require 'htauth'
+      rescue LoadError
+        Chef::Log.error("Missing gem 'htauth'. Use the default htpasswd recipe to install it first.")
       end
     end
   end

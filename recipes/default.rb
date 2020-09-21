@@ -18,6 +18,10 @@
 # limitations under the License.
 #
 
-build_essential 'htpasswd'
+build_essential 'htpasswd' do
+  compile_time true
+end
 
-chef_gem 'htauth'
+chef_gem 'htauth' do
+  compile_time true
+end

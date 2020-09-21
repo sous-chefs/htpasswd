@@ -10,6 +10,7 @@ This file is used to list changes made in each version of the htpasswd cookbook.
 - Automated PR: Standardising Files [\#38](https://github.com/sous-chefs/htpasswd/pull/38)
 - Fix converge failures on Chef 16
 - Fix idempotency for `:add` and `:delete` actions
+- Fix htauth gem loading issues
 
 ### Added
 
