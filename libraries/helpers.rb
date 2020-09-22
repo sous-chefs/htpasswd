@@ -3,6 +3,14 @@ module Htpasswd
     module Helpers
       private
 
+      def fix_perms(new_resource)
+        file new_resource.name do
+          owner new_resource.owner
+          group new_resource.group
+          mode new_resource.mode
+        end
+      end
+
       def htpasswd_user_exists?(new_resource)
         !user_entry(new_resource).nil?
       end

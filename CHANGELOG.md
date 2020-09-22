@@ -17,6 +17,7 @@ This file is used to list changes made in each version of the htpasswd cookbook.
 - Support for 'plaintext' type [\#32](https://github.com/sous-chefs/htpasswd/pull/32)
 - Adoption by Sous-Chefs [\#40](https://github.com/sous-chefs/htpasswd/pull/40)
 - Add delete and overwrite test-kitchen suites
+- Add owner, group and mode parameters for file
 
 ### Changed
 

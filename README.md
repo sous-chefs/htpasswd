@@ -41,6 +41,9 @@ This cookbook requires Chef Infra >= 14.
 - :password: Password for the user
 - :type: Password algorithm to use. Valid options are: "md5", "bcrypt", "sha1", "plaintext", or "crypt". Default is
   "md5"
+- :owner: User which owns the file. Default is `root`.
+- :group: Group which owns the file. Default is `root`.
+- :mode: File mode for the file. Default is `0640`.
 
 ### Example
 

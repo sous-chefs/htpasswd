@@ -7,6 +7,9 @@ property :password, String, required: [:add]
 property :type, String,
          equal_to: %w(md5 bcrypt sha1 plaintext crypt),
          default: 'md5'
+property :owner, String, default: 'root'
+property :group, String, default: 'root'
+property :mode, String, default: '0640'
 
 action :add do
   unless htpasswd_user_set?(@new_resource)
@@ -20,12 +23,14 @@ action :add do
       end
     end
   end
+  fix_perms(new_resource)
 end
 
 action :overwrite do
   converge_by("Overwrite file #{@new_resource.name} with user #{@new_resource.user}") do
     htpasswd_create(@new_resource)
   end
+  fix_perms(new_resource)
 end
 
 action :delete do
@@ -34,4 +39,5 @@ action :delete do
       htpasswd_delete(@new_resource)
     end
   end
+  fix_perms(new_resource)
 end
