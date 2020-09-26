@@ -7,8 +7,8 @@ property :password, String, required: [:add]
 property :type, String,
          equal_to: %w(md5 bcrypt sha1 plaintext crypt),
          default: 'md5'
-property :owner, String, default: 'root'
-property :group, String, default: 'root'
+# property :owner, String, default: 'root'
+# property :group, String, default: 'root'
 property :mode, String, default: '0640'
 
 action :add do

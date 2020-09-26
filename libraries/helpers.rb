@@ -5,8 +5,8 @@ module Htpasswd
 
       def fix_perms(new_resource)
         file new_resource.name do
-          owner new_resource.owner
-          group new_resource.group
+          # owner new_resource.owner
+          # group new_resource.group
           mode new_resource.mode
         end
       end
