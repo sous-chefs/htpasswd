@@ -3,7 +3,7 @@ provides :htpasswd
 
 property :file, String, name_property: true
 property :user, String, required: true
-property :password, String, required: [:add]
+property :password, String, required: [:add, :overwrite]
 property :type, String,
          equal_to: %w(md5 bcrypt sha1 plaintext crypt),
          default: 'md5'
