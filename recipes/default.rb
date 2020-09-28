@@ -18,4 +18,10 @@
 # limitations under the License.
 #
 
-include_recipe "htpasswd::#{node['htpasswd']['install_method']}" if node['htpasswd']['install_method']
+build_essential 'htpasswd' do
+  compile_time true
+end
+
+chef_gem 'htauth' do
+  compile_time true
+end
