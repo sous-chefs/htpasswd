@@ -15,6 +15,8 @@ jobs:
         uses: actions/checkout@master
       - name: Run Chef Delivery
         uses: actionshub/chef-delivery@master
+        with:
+          gems: 'htauth'
         env:
           CHEF_LICENSE: accept-no-persist
 
