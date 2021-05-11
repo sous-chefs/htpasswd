@@ -4,7 +4,7 @@ This file is used to list changes made in each version of the htpasswd cookbook.
 
 ## Unreleased
 
-- fix helper script to use file instead of name property
+- Fix helper script to use file instead of name property
 
 ## 2.0.2 - *2021-06-08*
 
