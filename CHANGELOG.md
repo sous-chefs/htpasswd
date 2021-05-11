@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the htpasswd cookbook.
 
+## Unreleased
+
+- resolved cookstyle error: resources/default.rb:1:1 refactor: `Chef/Deprecations/ResourceWithoutUnifiedTrue`
+
 ## 1.0.0 - 2020-09-28
 
 ### Fixed
