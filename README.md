@@ -22,7 +22,7 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 ### Chef Infra
 
-This cookbook requires Chef Infra >= 14.
+This cookbook requires Chef Infra >= 15.3.
 
 ## Resource/Provider
 
