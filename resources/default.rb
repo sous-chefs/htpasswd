@@ -1,5 +1,6 @@
 default_action :add
 provides :htpasswd
+unified_mode true
 
 property :file, String, name_property: true
 property :user, String, required: true

@@ -5,7 +5,7 @@ license           'Apache-2.0'
 description       'Provider for htpasswd'
 source_url        'https://github.com/sous-chefs/htpasswd'
 issues_url        'https://github.com/sous-chefs/htpasswd/issues'
-chef_version      '>= 14.0'
+chef_version      '>= 15.3'
 version           '1.0.0'
 
 supports 'centos'
