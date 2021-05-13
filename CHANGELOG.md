@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the htpasswd cookbook.
 
-## Unreleased
+## 2.0.0 - *2021-05-13*
 
 - Chef 17 updates: enable `unified_mode` on all resources
 - Bump required Chef Infra Client to >= 15.3
