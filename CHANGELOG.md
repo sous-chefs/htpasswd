@@ -13,6 +13,8 @@ This file is used to list changes made in each version of the htpasswd cookbook.
 
 ## 2.0.1 - *2021-06-01*
 
+- Standardise files with files in sous-chefs/repo-management
+
 ## 2.0.0 - *2021-05-13*
 
 - Chef 17 updates: enable `unified_mode` on all resources
