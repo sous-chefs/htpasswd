@@ -4,12 +4,16 @@ This file is used to list changes made in each version of the htpasswd cookbook.
 
 ## Unreleased
 
+- Fix helper script to use file instead of name property
+
 ## 2.0.2 - *2021-06-08*
 
 - [CI] Update ActionsHub actions to point at main
 - [CI] Update GitHub Actions checkout to v2
 
 ## 2.0.1 - *2021-06-01*
+
+- Standardise files with files in sous-chefs/repo-management
 
 ## 2.0.0 - *2021-05-13*
 
