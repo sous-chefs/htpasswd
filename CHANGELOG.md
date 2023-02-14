@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the htpasswd cookbook.
 
-## Unreleased
+## 2.0.5 - *2023-02-14*
 
 - Remove delivery folder
 
