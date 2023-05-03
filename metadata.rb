@@ -6,7 +6,7 @@ description       'Provider for htpasswd'
 source_url        'https://github.com/sous-chefs/htpasswd'
 issues_url        'https://github.com/sous-chefs/htpasswd/issues'
 chef_version      '>= 15.3'
-version           '2.0.7'
+version           '2.0.8'
 
 supports 'centos'
 supports 'debian'
