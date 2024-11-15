@@ -15,12 +15,16 @@ property :mode, String, default: '0640'
 action :add do
   unless htpasswd_user_set?(@new_resource)
     if ::File.exist?(new_resource.file)
-      converge_by("Add user #{@new_resource.user} in #{@new_resource.name}") do
-        htpasswd_add(@new_resource)
+      ruby_block "Add user #{@new_resource.user} in #{@new_resource.name}" do
+        block do
+          htpasswd_add(@new_resource)
+        end
       end
     else
-      converge_by("Create user #{@new_resource.user} in #{@new_resource.name}") do
-        htpasswd_create(@new_resource)
+      ruby_block "Create user #{@new_resource.user} in #{@new_resource.name}" do
+        block do
+          htpasswd_create(@new_resource)
+        end
       end
     end
   end

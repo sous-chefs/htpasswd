@@ -18,10 +18,14 @@
 # limitations under the License.
 #
 
-build_essential 'htpasswd' do
-  compile_time true
+declare_resource(:build_essential, 'htpasswd') do
+  compile_time(true)
 end
 
-chef_gem 'htauth' do
+# Use declare_resource to ensure these happen at the very start,
+# similar to how sous-chefs/postgresql does it.
+# https://github.com/sous-chefs/postgresql/blob/0b0da2cd955ab550f8e0408779b926dda908dec1/libraries/sql/_connection.rb#L109
+
+declare_resource(:chef_gem, 'htauth') do
   compile_time true
-end
+end unless gem_installed?('htauth')
