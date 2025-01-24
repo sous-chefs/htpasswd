@@ -19,7 +19,7 @@
 #
 
 declare_resource(:build_essential, 'htpasswd') do
-  compile_time(true)
+  compile_time true
 end
 
 # Use declare_resource to ensure these happen at the very start,
