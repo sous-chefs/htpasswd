@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the htpasswd cookbook.
 
-## Unreleased
+## 2.0.17 - *2025-09-04*
 
 - Fix installing `htauth` gem
 - Fix passing resource properties to helpers
