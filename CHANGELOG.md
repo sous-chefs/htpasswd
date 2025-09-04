@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the htpasswd cookbook.
 
+## Unreleased
+
 ## 2.0.17 - *2025-09-04*
 
 ## 2.0.16 - *2024-12-05*
