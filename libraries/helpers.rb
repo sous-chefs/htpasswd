@@ -52,10 +52,24 @@ module Htpasswd
         nil
       end
 
+      # Use the same method as sous-chefs/postgresql
+      # https://github.com/sous-chefs/postgresql/blob/0b0da2cd955ab550f8e0408779b926dda908dec1/libraries/_utils.rb#L51
+      #
+      # Check if a given gem is installed and available for require
+      #
+      # @return [true, false] Gem installed result
+      #
+      def gem_installed?(gem_name)
+        !Gem::Specification.find_by_name(gem_name).nil?
+      rescue Gem::LoadError
+        false
+      end
+
       def require_htauth
-        require 'htauth'
-      rescue LoadError
-        Chef::Log.error("Missing gem 'htauth'. Use the default htpasswd recipe to install it first.")
+        # https://github.com/sous-chefs/postgresql/blob/0b0da2cd955ab550f8e0408779b926dda908dec1/libraries/sql/_connection.rb#L131-L133
+        Chef::Log.error("Missing gem 'htauth'. Use the default htpasswd recipe to install it first. These were all the found gems: #{Gem::Specification.all_names()}") unless gem_installed?('htauth')
+
+        require 'htauth' unless defined?(::HTAuth)
       end
     end
   end

@@ -6,6 +6,12 @@ This file is used to list changes made in each version of the htpasswd cookbook.
 
 ## 2.0.17 - *2025-09-04*
 
+- Fix installing `htauth` gem
+- Fix passing resource properties to helpers
+- Remove CentOS Stream 8 from CI
+
+## 2.0.17 - *2025-09-04*
+
 ## 2.0.16 - *2024-12-05*
 
 ## 2.0.15 - *2024-05-01*
