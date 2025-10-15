@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the htpasswd cookbook.
 
+## [2.0.18](https://github.com/sous-chefs/htpasswd/compare/2.0.17...v2.0.18) (2025-10-15)
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#76](https://github.com/sous-chefs/htpasswd/issues/76)) ([23dbab8](https://github.com/sous-chefs/htpasswd/commit/23dbab8b9373e560f2174ad2a76dccf0a1825564))
+
 ## 2.0.6 - *2023-03-02*
 
 * Standardise files with files in sous-chefs/repo-management
