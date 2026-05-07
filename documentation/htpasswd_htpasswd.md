@@ -13,8 +13,8 @@ Use the `htpasswd` resource to manage users in Apache htpasswd-format files.
 | Property | Type | Default | Description |
 | --- | --- | --- | --- |
 | `file` | String | Resource name | Path to the htpasswd file to manage. |
-| `user` | String |  | User entry to add, update, overwrite, or delete. |
-| `password` | String |  | Password for `:add` and `:overwrite`. |
+| `user` | String | None | User entry to add, update, overwrite, or delete. |
+| `password` | String | None | Password for `:add` and `:overwrite`. |
 | `type` | String | `md5` | Password algorithm. Valid values: `md5`, `bcrypt`, `sha1`, `plaintext`, `crypt`. |
 | `mode` | String | `0640` | File mode to apply after the resource changes the file. |
 
