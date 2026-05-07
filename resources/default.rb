@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 default_action :add
 provides :htpasswd
 unified_mode true
@@ -8,37 +10,62 @@ property :password, String, required: [:add, :overwrite]
 property :type, String,
          equal_to: %w(md5 bcrypt sha1 plaintext crypt),
          default: 'md5'
-# property :owner, String, default: 'root'
-# property :group, String, default: 'root'
 property :mode, String, default: '0640'
 
+action_class do
+  include Htpasswd::Cookbook::Helpers
+end
+
 action :add do
-  unless htpasswd_user_set?(@new_resource)
-    if ::File.exist?(new_resource.file)
-      converge_by("Add user #{@new_resource.user} in #{@new_resource.name}") do
-        htpasswd_add(@new_resource)
-      end
-    else
-      converge_by("Create user #{@new_resource.user} in #{@new_resource.name}") do
-        htpasswd_create(@new_resource)
+  install_htauth_gem
+
+  helper = self
+  htpasswd_resource = new_resource
+
+  ruby_block "add htpasswd user #{new_resource.user} to #{new_resource.file}" do
+    block do
+      if ::File.exist?(htpasswd_resource.file)
+        helper.send(:htpasswd_add, htpasswd_resource)
+      else
+        helper.send(:htpasswd_create, htpasswd_resource)
       end
     end
+    not_if { helper.send(:htpasswd_user_set?, htpasswd_resource) }
   end
+
   fix_perms(new_resource)
 end
 
 action :overwrite do
-  converge_by("Overwrite file #{@new_resource.name} with user #{@new_resource.user}") do
-    htpasswd_create(@new_resource)
+  install_htauth_gem
+
+  helper = self
+  htpasswd_resource = new_resource
+
+  ruby_block "overwrite htpasswd file #{new_resource.file} with user #{new_resource.user}" do
+    block do
+      helper.send(:htpasswd_create, htpasswd_resource)
+    end
   end
+
   fix_perms(new_resource)
 end
 
 action :delete do
-  if htpasswd_user_exists?(@new_resource)
-    converge_by("Delete user #{@new_resource.user} in #{@new_resource.name}") do
-      htpasswd_delete(@new_resource)
+  install_htauth_gem
+
+  helper = self
+  htpasswd_resource = new_resource
+
+  ruby_block "delete htpasswd user #{new_resource.user} from #{new_resource.file}" do
+    block do
+      helper.send(:htpasswd_delete, htpasswd_resource)
     end
+    only_if { helper.send(:htpasswd_user_exists?, htpasswd_resource) }
   end
-  fix_perms(new_resource)
+
+  file new_resource.file do
+    mode new_resource.mode
+    only_if { ::File.exist?(new_resource.file) }
+  end
 end

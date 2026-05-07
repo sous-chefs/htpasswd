@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 file = '/tmp/htpass_test'
 
 htpasswd file do
