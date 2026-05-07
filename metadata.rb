@@ -8,7 +8,7 @@ description       'Provides the htpasswd resource'
 source_url        'https://github.com/sous-chefs/htpasswd'
 issues_url        'https://github.com/sous-chefs/htpasswd/issues'
 chef_version      '>= 15.3'
-version           '2.0.18'
+version           '3.0.0'
 
 supports 'almalinux', '>= 8.0'
 supports 'amazon', '>= 2023.0'
