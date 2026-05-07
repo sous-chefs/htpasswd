@@ -1,12 +1,23 @@
+# frozen_string_literal: true
+
 module Htpasswd
   module Cookbook
     module Helpers
       private
 
+      def install_htauth_gem
+        build_essential 'htpasswd gem dependencies' do
+          action :install
+        end
+
+        chef_gem 'htauth' do
+          compile_time false
+          action :install
+        end
+      end
+
       def fix_perms(new_resource)
         file new_resource.file do
-          # owner new_resource.owner
-          # group new_resource.group
           mode new_resource.mode
         end
       end
@@ -48,17 +59,15 @@ module Htpasswd
       def user_entry(new_resource)
         require_htauth
         HTAuth::PasswdFile.new(new_resource.file).fetch(new_resource.user)
-      rescue
+      rescue StandardError
         nil
       end
 
       def require_htauth
         require 'htauth'
       rescue LoadError
-        Chef::Log.error("Missing gem 'htauth'. Use the default htpasswd recipe to install it first.")
+        raise "Missing gem 'htauth'. The htpasswd resource installs it before managing files."
       end
     end
   end
 end
-Chef::DSL::Recipe.include ::Htpasswd::Cookbook::Helpers
-Chef::Resource.include ::Htpasswd::Cookbook::Helpers

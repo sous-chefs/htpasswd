@@ -16,15 +16,25 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 ### Platforms
 
-- CentOS 7+
-- Debian 9+
-- Ubuntu 16.04+ LTS
+- AlmaLinux 8+
+- Amazon Linux 2023+
+- CentOS Stream 9+
+- Debian 12+
+- Fedora latest
+- Oracle Linux 8+
+- Red Hat Enterprise Linux 8+
+- Rocky Linux 8+
+- Ubuntu 22.04+ LTS
 
 ### Chef Infra
 
 This cookbook requires Chef Infra >= 15.3.
 
-## Resource/Provider
+## Resources
+
+This cookbook exposes only the `htpasswd` custom resource. See [migration.md](migration.md) for the breaking change from the removed default recipe to direct resource usage.
+
+See [documentation/htpasswd_htpasswd.md](documentation/htpasswd_htpasswd.md) for complete resource documentation.
 
 ### htpasswd
 
