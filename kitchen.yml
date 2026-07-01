@@ -47,15 +47,18 @@ x-verifiers:
 
 suites:
   - name: default
+    named_run_list: default
     run_list: *default_run_list
     verifier: *default_verifier
   - name: delete
+    named_run_list: delete
     provisioner:
       enforce_idempotency: false
       multiple_converge: 2
     run_list: *delete_run_list
     verifier: *delete_verifier
   - name: overwrite
+    named_run_list: overwrite
     provisioner:
       enforce_idempotency: false
       multiple_converge: 2
