@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the htpasswd cookbook.
 
+## [3.0.1](https://github.com/sous-chefs/htpasswd/compare/v3.0.0...v3.0.1) (2026-07-09)
+
+
+### Bug Fixes
+
+* migrate to Policyfile and map Kitchen suites ([#91](https://github.com/sous-chefs/htpasswd/issues/91)) ([8dc3cc3](https://github.com/sous-chefs/htpasswd/commit/8dc3cc3db074c3158e30dccb390292929cd89a92))
+
 ## [3.0.0](https://github.com/sous-chefs/htpasswd/compare/v2.0.18...v3.0.0) (2026-05-07)
 
 
